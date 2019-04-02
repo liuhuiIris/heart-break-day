@@ -34,16 +34,21 @@
     heartBreak.appendChild(point);
   }
 
-  function heartShape(dx, dy, r) {
+  function heartShape(dx, dy, r, b) {
     var n,x,y,i;
-    for(i=0; i<555; i++) {
+    for(i = 0; i < 555; i++) {
       n = -r * (((Math.sin(i) * Math.sqrt(Math.abs(Math.cos(i)))) / (Math.sin(i) + 1.4)) - 2 * Math.sin(i) + 2);
       x = n * Math.cos(i) + dx;
       y = n * Math.sin(i) + dy;
+      if (y < dy + b) {
+        if (x < dx + b && x > dx - b) {
+          y = 5 * y - 11 * Math.log(dy) + 2 * n;
+        }
+      }
       creatPoint(x, y);
     }
   }
 
-  heartShape(220,111,100);
+  heartShape(220, 111, 100, 50);
 </script>
 </html>
