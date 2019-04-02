@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Heart Break Day</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    div {
+      position: absolute;
+    }
+    .point {
+      width: 10px;
+      height: 10px;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <p>Hi, Iris</p>
+  <p>This is a sad day, but also a happy day.</p>
+  <p>I just want write sth, anything is ok.</p>
+  <p>Then let me draw a picture of break heart</p>
+  <p>There is no color , no picture, just a line, very simple.</p>
+  <div class="heart-break" id="heart-break"></div>
+</body>
+<script>
+  var heartBreak = document.getElementById("heart-break");
+  function creatPoint(x, y) {
+    var point = document.createElement("div");
+    point.className = "point";
+    point.style.left = x + "px";
+    point.style.top = y + "px";
+    heartBreak.appendChild(point);
+  }
+
+  function heartShape(dx, dy, r) {
+    var n,x,y,i;
+    for(i=0; i<555; i++) {
+      n = -r * (((Math.sin(i) * Math.sqrt(Math.abs(Math.cos(i)))) / (Math.sin(i) + 1.4)) - 2 * Math.sin(i) + 2);
+      x = n * Math.cos(i) + dx;
+      y = n * Math.sin(i) + dy;
+      creatPoint(x, y);
+    }
+  }
+
+  heartShape(220,111,100);
+</script>
+</html>
