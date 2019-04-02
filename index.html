@@ -40,10 +40,9 @@
       n = -r * (((Math.sin(i) * Math.sqrt(Math.abs(Math.cos(i)))) / (Math.sin(i) + 1.4)) - 2 * Math.sin(i) + 2);
       x = n * Math.cos(i) + dx;
       y = n * Math.sin(i) + dy;
-      if (y < dy + b) {
-        if (x < dx + b && x > dx - b) {
+      if (y < dy + b && x < dx + b && x > dx - b) {
+          x = 5 * Math.sin(x) + x;
           y = 5 * y - 11 * Math.log(dy) + 2 * n;
-        }
       }
       creatPoint(x, y);
     }
